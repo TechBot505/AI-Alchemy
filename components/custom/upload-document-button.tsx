@@ -10,14 +10,18 @@ import {
 } from "@/components/ui/dialog";
 import UploadDocumentForm from "./upload-document-form";
 import { useState } from "react";
+import { Upload } from "lucide-react";
 
-const CreateDocumentButton = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const UploadDocumentButton = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Dialog onOpenChange={setIsOpen} open={isOpen}>
       <DialogTrigger asChild>
-        <Button>Upload Document</Button>
+        <Button className="flex gap-2 items-center">
+          <Upload size={20} />
+          Upload Document
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -32,4 +36,4 @@ const CreateDocumentButton = () => {
   );
 };
 
-export default CreateDocumentButton;
+export default UploadDocumentButton;
