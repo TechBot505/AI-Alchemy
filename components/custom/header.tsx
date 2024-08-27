@@ -1,8 +1,8 @@
 "use client";
-import { Authenticated, Unauthenticated } from "convex/react";
+import { Authenticated, Unauthenticated, AuthLoading } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { Bot } from "lucide-react";
+import { Bot, Loader2 } from "lucide-react";
 import Link from "next/link";
 
 const Header = () => {
@@ -15,14 +15,17 @@ const Header = () => {
           </Link>
           <span className="font-bold text-lg">AI Alchemy</span>
         </div>
-        <div className="flex max-lg:ml-auto space-x-5">
+        <div className="flex max-lg:ml-auto space-x-5 items-center">
+          <ModeToggle />
           <Unauthenticated>
             <SignInButton />
           </Unauthenticated>
           <Authenticated>
-            <ModeToggle />
             <UserButton />
           </Authenticated>
+          <AuthLoading>
+            <Loader2 className="animate-spin" size={24} />
+          </AuthLoading>
         </div>
       </div>
     </header>
